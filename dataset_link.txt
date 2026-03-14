@@ -1,0 +1,7 @@
+Dataset Source
+
+Kaggle – Real or Fake Job Posting Prediction Dataset
+
+https://www.kaggle.com/datasets/shivamb/real-or-fake-fake-jobposting-prediction
+
+This dataset contains 17,880 job postings used for analyzing patterns in fraudulent job listings.
