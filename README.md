@@ -1,54 +1,69 @@
 # Real vs Fake Job Posting Analysis
 
 ## Project Overview
+
 The **Real vs Fake Job Posting Analysis** project investigates patterns in online job advertisements to identify characteristics commonly associated with fraudulent job postings.
 
 With the rapid growth of online job platforms, fraudulent job advertisements have become a significant issue for job seekers. These fake postings may request sensitive personal information or attempt to scam applicants.
 
-This project analyzes job listing data to detect indicators of job fraud using **SQL for data analysis** and **Power BI for data visualization**.
+This project analyzes job listing data to detect indicators of job fraud using **SQL for data analysis**, **Python for data preprocessing**, and **Power BI for interactive visualization**.
 
 ---
 
 ## Tools & Technologies Used
 
-- SQL
-- Python (Pandas, NumPy)
-- Jupyter Notebook
-- Power BI
-- Data Analysis
-- Data Visualization
+* SQL
+* Python (Pandas, NumPy)
+* Jupyter Notebook
+* Power BI
+* Data Analysis
+* Data Visualization
 
 ---
 
 ## Dataset Summary
 
-The dataset contains job posting information collected from online job platforms.
+The dataset used for this project contains job posting information collected from online job platforms.
 
-Total Records: **17,880 job postings**
+**Total Records:** 17,880 job postings
 
-Key Columns:
+### Key Columns
 
-- **job_id** – Unique identifier for job postings  
-- **salary_range** – Salary information in the listing  
-- **employment_type** – Full-time, Part-time, Contract, etc.  
-- **telecommuting** – Indicates remote work availability  
-- **has_company_logo** – Indicates if company logo is present  
-- **industry** – Industry category  
-- **required_education** – Minimum education requirement  
-- **fraudulent** – Target variable  
-  - 0 = Real Job  
-  - 1 = Fake Job  
+* **job_id** – Unique identifier for each job posting
+* **salary_range** – Salary information provided in the listing
+* **employment_type** – Type of job (Full-time, Part-time, Contract, etc.)
+* **telecommuting** – Indicates whether the job allows remote work
+* **has_company_logo** – Indicates whether a company logo is included
+* **industry** – Industry category of the job posting
+* **required_education** – Minimum education requirement for the role
+* **fraudulent** – Target variable
 
-Dataset Source:  
+  * **0 = Real Job**
+  * **1 = Fake Job**
+
+### Dataset Source
+
+Kaggle Dataset:
 https://www.kaggle.com/datasets/shivamb/real-or-fake-fake-jobposting-prediction
+
+The dataset is not included in this repository to avoid large file size and duplication. It can be downloaded directly from Kaggle.
 
 ---
 
-## SQL Data Analysis
+## Data Analysis Using SQL
 
-SQL queries were used to analyze patterns in fraudulent job postings.
+SQL queries were used to analyze patterns and characteristics associated with fraudulent job postings.
 
-Example queries used in the project:
+Key analysis tasks included:
+
+* Counting total job postings
+* Identifying real vs fake job distribution
+* Calculating the percentage of fraudulent jobs
+* Detecting fake jobs without salary disclosure
+* Examining fraud patterns by employment type and industry
+* Understanding education requirements in fraudulent listings
+
+### Example SQL Queries
 
 ```sql
 SELECT COUNT(*) AS total_jobs
@@ -62,78 +77,59 @@ SELECT ROUND(
 SUM(CASE WHEN fraudulent = 1 THEN 1 ELSE 0 END)*100.0/COUNT(*),2)
 AS fake_percentage
 FROM job_postings;
+```
 
-The analysis focused on:
+Additional queries were used to analyze relationships between fraud and attributes such as salary disclosure, company logo presence, telecommuting options, and employment type.
 
-Real vs Fake job distribution
+---
 
-Fraudulent jobs without salary disclosure
+## Power BI Dashboard
 
-Fraud patterns by industry
+An interactive **Power BI dashboard** was developed to visualize fraud patterns in job postings.
 
-Telecommuting and fraud correlation
+### Dashboard Components
 
-Education requirements in fake postings
+* Total Job Postings KPI
+* Fake Job Percentage KPI
+* Fake Jobs Without Salary Disclosure
+* Real vs Fake Job Distribution
+* Fraud Percentage by Employment Type
+* Fake Jobs by Industry
+* Fake Jobs by Telecommuting Option
+* Education Requirement Distribution in Fraudulent Jobs
 
-Power BI Dashboard
+---
 
-An interactive Power BI dashboard was created to visualize fraud patterns.
+## Key Insights
 
-Dashboard includes:
+The analysis revealed several insights related to fraudulent job postings:
 
-Total Job Postings KPI
+* A **small percentage of total job postings were fraudulent**.
+* Many **fake job listings do not disclose salary information**.
+* Job postings **without company logos have a higher probability of being fraudulent**.
+* Certain **industries show higher concentrations of fake job postings**.
+* Some **remote job listings may be associated with fraudulent activity**.
 
-Fake Job Percentage
+These insights highlight the importance of verifying job listings before applying.
 
-Real vs Fake Job Distribution
+---
 
-Fake Jobs Without Salary Disclosure
+## Conclusion
 
-Fraud Percentage by Employment Type
+This project demonstrates how **data analytics techniques can be applied to detect patterns associated with fraudulent job postings**.
 
-Fake Jobs by Industry
+By combining **SQL-based data analysis**, **Python preprocessing**, and **Power BI visualization**, the project provides insights into how fraudulent job listings differ from legitimate ones.
 
-Fake Jobs by Telecommuting
+The results emphasize the role of **data-driven approaches in improving transparency and helping job seekers make informed decisions when evaluating online job opportunities.**
 
-Education Requirement Patterns
+---
 
-Key Insights
+## Project Files
 
-Key insights discovered from the analysis:
+The repository includes:
 
-Only a small percentage of job postings are fraudulent.
-
-Fake job postings often do not disclose salary information.
-
-Listings without company logos show higher fraud probability.
-
-Certain industries have higher concentrations of fake jobs.
-
-Some remote job listings may be associated with fraudulent activity.
-
-These insights highlight the importance of verifying job advertisements before applying.
-
-Project Files
-
-Repository contains:
-
-SQL queries used for analysis
-
-Jupyter Notebook for data exploration
-
-Power BI dashboard file
-
-Project report
-
-Dashboard screenshot
-
-The dataset is not included to avoid data duplication and large file size.
-
-Dataset can be downloaded from Kaggle:
-https://www.kaggle.com/datasets/shivamb/real-or-fake-fake-jobposting-prediction
-
-Conclusion
-
-This project demonstrates how data analytics techniques can be used to detect patterns in fraudulent job postings.
-
-By combining SQL data analysis with Power BI visualization, it becomes easier to identify suspicious listings and understand key indicators of job fraud.
+* SQL queries used for analysis
+* Jupyter Notebook for data exploration
+* Power BI dashboard file
+* Project report
+* Dashboard screenshot
